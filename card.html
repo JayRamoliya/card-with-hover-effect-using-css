@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card with hover effect using css</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:'poppins' sans-serif;
+        }
+
+        body
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card
+        {
+            width: 250px;
+            height: 250px;
+            margin: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position:relative;
+            cursor: pointer;
+            transition: all .4s;
+        }
+        .card:hover{color: white;}
+
+        .card::before, .card::after
+        {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(243, 243, 243);
+            z-index: -1;
+            border-radius: 10px;
+            transition: all .4s;
+        }
+
+        .card::after
+        {
+            background: #f8485e;
+            transform-origin: right bottom;
+            transform: translate(10% ,10%) scale(0.3);
+            border-radius: 50%;
+            transition: all .4s;
+        }
+
+        .card:hover::after
+        {
+            transform: translate(0) scale(1);
+            border-radius: 0;
+            border-radius: 10px;
+        }
+
+        .card:hover::before
+        {
+            transform-origin: right bottom;
+            transform: translate(10%,10%) scale(0.3);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+    </style>
+</head>
+<body>
+    
+        <div class="card">
+            <h1>card</h1>
+            <p>1</p>
+        </div>
+        <div class="card">
+            <h1>card</h1>
+            <p>2</p>
+        </div>
+        <div class="card">
+            <h1>card</h1>
+            <p>3</p>
+        </div>
+    
+</body>
+</html>
